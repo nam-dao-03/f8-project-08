@@ -1,11 +1,15 @@
+%flexItemsCenter {
+    display    : flex;
+    align-items: center;
+}
+
 .header {
     background-color: #eee;
 }
 
 .top-bar {
-    display    : flex;
-    align-items: center;
-    padding    : 3rem 0
+    @extend %flexItemsCenter;
+    padding: 3rem 0
 }
 
 .navbar {
@@ -13,15 +17,13 @@
     margin-right: auto;
 
     &__list {
-        display    : flex;
-        align-items: center;
-        column-gap : 3rem;
+        @extend %flexItemsCenter;
+        column-gap: 3rem;
     }
 
     &__link {
-        display    : flex;
+        @extend %flexItemsCenter;
         gap        : 6px;
-        align-items: center;
         font-size  : 1.5rem;
         font-weight: 500;
         line-height: 146.667%;
@@ -33,13 +35,11 @@
 }
 
 .top-act {
-    display    : flex;
-    align-items: center;
-    gap        : 2rem;
+    @extend %flexItemsCenter;
+    gap: 2rem;
 
     &__group {
-        display      : flex;
-        align-items  : center;
+        @extend %flexItemsCenter;
         min-width    : 5rem;
         height       : 5rem;
         border-radius: 0.8rem;
@@ -52,9 +52,9 @@
     }
 
     &__btn {
-        display    : flex;
-        align-items: center;
-        padding    : 1.3rem 2rem
+        @extend %flexItemsCenter;
+        padding: 1.3rem 2rem;
+        cursor : pointer;
     }
 
     &__title {
@@ -75,5 +75,6 @@
         width        : 5rem;
         height       : 5rem;
         border-radius: 0.8rem;
+        cursor       : pointer;
     }
 }
