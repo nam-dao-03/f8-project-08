@@ -7,14 +7,13 @@
 
     &__inner {
 
-        --inner-max-height: min(58.2rem, 100vh - 15.8rem);
-        --inner-padding   : 3rem;
-        position          : relative;
-        max-height        : var(--inner-max-height);
-        padding           : var(--inner-padding);
-        border-radius     : 2rem;
-        background        : var(--dropdown-bg-color);
-        box-shadow        : 0px 4rem 9rem 2rem var(--dropdown-shadow-color);
+
+        --inner-padding: 3rem;
+        position       : relative;
+        padding        : var(--inner-padding);
+        border-radius  : 2rem;
+        background     : var(--dropdown-bg-color);
+        box-shadow     : 0px 4rem 9rem 2rem var(--dropdown-shadow-color);
 
         &::before {
             content  : url("../icons/dropdown-arrow.svg");
@@ -28,11 +27,12 @@
 }
 
 .top-menu {
-    max-height: calc(var(--inner-max-height) - var(--inner-padding) * 2);
+    --main-column-width: 29.2rem;
+    position           : relative;
 
     &__main {
-        width       : 29.2rem;
-        max-height  : inherit;
+        width       : var(--main-column-width);
+        height      : calc(min(58.2rem, 100vh - 15.8rem) - var(--inner-padding) * 2);
         border-right: 1px solid var(--menu-border-color);
         overflow-y  : auto;
     }
@@ -42,6 +42,10 @@
 
     display: flex;
     gap    : 1.4rem;
+
+    +.menu-column {
+        margin-top: var(--inner-padding);
+    }
 
     &__icon {
         flex-shrink: 0;
@@ -58,7 +62,7 @@
     &__icon-1 {
         width     : 3rem;
         height    : 3rem;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     &__icon-2 {
@@ -82,6 +86,17 @@
         margin-top: 1.9rem;
     }
 
+    &__item {
+        &:hover .sub-menu {
+            display: grid;
+        }
+    }
+
+    &__item:hover>&__link {
+        font-weight: 500;
+        color      : #0071DC;
+    }
+
     &__link {
         display    : block;
         padding    : 7px 0;
@@ -90,10 +105,18 @@
         line-height: 142.857%;
     }
 
-    &__link:hover {
-        font-weight: 500;
-        color      : #0071DC;
-    }
 
 
+
+}
+
+
+.sub-menu {
+    position             : absolute;
+    inset                : 0 0 0 var(--main-column-width);
+    display              : none;
+    grid-template-columns: repeat(3, 1fr);
+    gap                  : 3rem;
+    padding-left         : var(--inner-padding);
+    overflow-y           : auto;
 }
