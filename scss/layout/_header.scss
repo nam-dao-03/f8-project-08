@@ -8,6 +8,10 @@
 
 .header {
     background-color: var(--header-bg-color);
+
+    @include abstracts.breakpoint(lg) {
+        box-shadow: 0px 2rem 6rem 1rem var(--header-shadow-color);
+    }
 }
 
 .top-bar {
@@ -15,7 +19,7 @@
     padding : 3rem 0;
     position: relative;
 
-    @include abstracts.breakpoint(sm) {
+    @include abstracts.breakpoint(md) {
         justify-content: space-between;
         padding        : 1.6rem 0;
     }
@@ -34,10 +38,10 @@
 }
 
 .navbar {
-    margin-left: 14.4rem;
+    margin-left: 12.9rem;
 
     @include abstracts.breakpoint(xl) {
-        margin-left: 5rem;
+        margin-left: 2.8rem;
     }
 
     @include abstracts.breakpoint(lg) {
@@ -53,13 +57,6 @@
             display: block;
         }
 
-        &:first-child a {
-            padding-left: 0
-        }
-
-        &:last-child a {
-            padding-right: 0
-        }
     }
 
 
@@ -83,7 +80,7 @@
     gap        : 2rem;
     margin-left: auto;
 
-    @include abstracts.breakpoint(sm) {
+    @include abstracts.breakpoint(md) {
         margin-left: 0;
     }
 

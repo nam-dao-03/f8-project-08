@@ -6,12 +6,15 @@
     width         : min(124rem, 100%);
 
     &__inner {
-        position     : relative;
-        max-height   : min(58.2rem, 100vh - 15.8rem);
-        padding      : 3rem;
-        border-radius: 2rem;
-        background   : var(--dropdown-bg-color);
-        box-shadow   : 0px 4rem 9rem 2rem var(--dropdown-shadow-color);
+
+        --inner-max-height: min(58.2rem, 100vh - 15.8rem);
+        --inner-padding   : 3rem;
+        position          : relative;
+        max-height        : var(--inner-max-height);
+        padding           : var(--inner-padding);
+        border-radius     : 2rem;
+        background        : var(--dropdown-bg-color);
+        box-shadow        : 0px 4rem 9rem 2rem var(--dropdown-shadow-color);
 
         &::before {
             content  : url("../icons/dropdown-arrow.svg");
@@ -25,12 +28,13 @@
 }
 
 .top-menu {
-    height: 100%;
+    max-height: calc(var(--inner-max-height) - var(--inner-padding) * 2);
 
     &__main {
         width       : 29.2rem;
-        height      : 100%;
-        border-right: 1px solid var(--menu-border-color)
+        max-height  : inherit;
+        border-right: 1px solid var(--menu-border-color);
+        overflow-y  : auto;
     }
 }
 
@@ -47,7 +51,8 @@
     }
 
     &__content {
-        flex: 1
+        flex: 1;
+
     }
 
     &__icon-1 {
@@ -63,6 +68,7 @@
         position  : absolute;
         right     : 0;
         bottom    : 0;
+        filter    : var(--menu-item-icon-color);
     }
 
     &__heading {
@@ -88,5 +94,6 @@
         font-weight: 500;
         color      : #0071DC;
     }
+
 
 }
