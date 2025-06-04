@@ -1397,6 +1397,7 @@ html.dark {
   position: absolute;
   left: 0;
   padding-top: 5rem;
+  display: none;
   width: min(124rem, 100%);
 }
 .dropdown__inner {
@@ -1432,13 +1433,18 @@ html.dark {
   gap: 1.4rem;
 }
 .menu-column + .menu-column {
-  margin-top: var(--inner-padding);
+  margin-top: 2.2rem;
 }
 .menu-column__icon {
   flex-shrink: 0;
   width: 3.6rem;
   height: 3.6rem;
   position: relative;
+}
+@media (max-width: 1199.98px) {
+  .menu-column__icon {
+    display: none;
+  }
 }
 .menu-column__content {
   flex: 1;
@@ -1451,7 +1457,7 @@ html.dark {
 .menu-column__icon-2 {
   width: 2.4rem;
   height: 2.4rem;
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
   right: 0;
   bottom: 0;
